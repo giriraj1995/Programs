@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
-int linear_search(int a[],int n)
+int linear_search(int *a,int n)
 {
 	for (int i = 0; i < 10; ++i)
 	{
 		if(a[i]==n)
-			return i;
+			return i+1;
 	
 	}
-	return -1;
+	return 999;
 }
 int main()
 {
@@ -27,4 +27,5 @@ int main()
 	return 0;
 }
 
-	/* linear_search.CPP HAS COMPLEXITY O(N) BECAUSE OF N ELEMENTS IN THE ARRAY */
+	/* linear_search.CPP HAS COMPLEXITY O(N) BECAUSE OF N ELEMENTS IN THE ARRAY 
+	THIS IS NOT DIVIDE & CONQUER*/
