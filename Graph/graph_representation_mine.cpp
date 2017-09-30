@@ -15,7 +15,7 @@ struct Graph{
 };
 struct AdjListNode* newNode(int d)
 {
-	struct AdListNode* node = (struct AdjListNode*)malloc(sizeof(struct AdjListNode));
+	struct AdjListNode* node = (struct AdjListNode*)malloc(sizeof(struct AdjListNode));
 	node->des=d;
 	node->next=NULL;
 
@@ -33,9 +33,9 @@ struct Graph* newGraph(int ver)
 
 	return graph;
 }
-struct Graph* AddEdge(struct Graph*,int src,int des)
+struct Graph* AddEdge(struct Graph* graph,int src,int des)
 {
-	struct AdListNode* newnode = newNode(des);
+	struct AdjListNode* newnode = newNode(des);
 	newnode->next=graph->array[src].head;
 	graph->array[src].head= newnode;
 
@@ -51,12 +51,13 @@ void printGraph(struct Graph* graph)
 	for (int i = 0; i < graph->V; ++i)
 	{
 		temp=graph->array[i].head;
-		cout<<i<<endl;
+		cout<<i;
 		while(temp!=NULL)
 		{
 			cout<<" -- >"<<temp->des;
 			temp=temp->next;
 		}
+		cout<<endl;
 	}
 
 	free(temp);
