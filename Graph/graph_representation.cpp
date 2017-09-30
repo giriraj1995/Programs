@@ -43,6 +43,22 @@ struct Graph* AddEdge(struct Graph*,int src,int des)
 	graph->array[des].head= newnode;
 
 }
+void printGraph(struct Graph* graph)
+{
+	struct AdjListNode* temp = (struct AdjListNode*)malloc(sizeof(struct AdjListNode));
+	for (int i = 0; i < graph->V; ++i)
+	{
+		temp=graph->array[i].head;
+		cout<<i<<endl;
+		while(temp!=NULL)
+		{
+			cout<<" -- >"<<temp->des;
+			temp=temp->next;
+		}
+	}
+
+	free(temp);
+}
 int main()
 {
 	int V=5;
@@ -55,6 +71,6 @@ int main()
     AddEdge(graph, 2, 3);
     AddEdge(graph, 3, 4);
 
-    print
+    printGraph(graph);
 return 0;
 }
