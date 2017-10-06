@@ -8,13 +8,13 @@ int merge(int a[],int low,int mid,int high)
 	int L[n1],R[n2];
 
 	for (i = 0; i < n1; ++i)
-		L[i]=a[l+i];
-	for(j=0, j < n2; ++j)
+		L[i]=a[low+i];
+	for(j=0; j < n2; ++j)
 		R[j]=a[mid+1+j];
 
 	i=0;
 	j=0;
-	k=l;
+	k=low;
 	while (i < n1 && j < n2)
 	{
 		if(L[i]<=R[j])
