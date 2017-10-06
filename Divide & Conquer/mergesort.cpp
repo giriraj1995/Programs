@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int merge(int a[],int low,int mid,int high)
+void merge(int a[],int low,int mid,int high)
 {
 	int i,j,k;
 	int n1=mid-low+1;
@@ -27,6 +27,7 @@ int merge(int a[],int low,int mid,int high)
 			a[k]=R[j];
 			j++;
 		}
+		k++;
 	}
 
 	while(i<n1)
@@ -42,7 +43,13 @@ int merge(int a[],int low,int mid,int high)
 		k++;
 	}
 }
-int mergesort(int a[],int low,int high)
+void Print_array(int arr[],int n)
+{
+	for(int i=0;i<n;i++)
+		cout<<arr[i]<<" ";
+	cout<<endl;
+}
+void mergesort(int a[],int low,int high)
 {
 	if(high>low)
 	{
@@ -51,19 +58,16 @@ int mergesort(int a[],int low,int high)
 		mergesort(a,mid+1,high);
 		merge(a,low,mid,high);
 	}
+		Print_array(a,high+1);
+
 }
-void Print_array(int arr[],int n)
-{
-	for(int i=0;i<n;i++)
-		cout<<arr[i]<<" ";
-	cout<<endl;
-}
+
 int main()
 {
 	int a[]={5,43,21,30,50,90,70};
 	int size=sizeof(a)/sizeof(a[0]);
+	Print_array(a,size);
 
 	mergesort(a,0,size-1);
-	Print_array(a,size);
 	return 0;
 }
