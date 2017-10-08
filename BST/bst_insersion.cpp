@@ -8,7 +8,7 @@ struct BSTNode
 };
 struct BSTNode* newnode(int data)
 {
-	struct BSTNode *temp=(struct BSTNode*)malloc(sizeof(struct BSTNode));
+	struct BSTNode *temp=(struct BSTNode*)malloc(sizeof(struct BSTNode)) ;
 	temp->item=data;
 	temp->left=NULL;
 	temp->right=NULL;
@@ -29,7 +29,7 @@ struct BSTNode* insert(struct BSTNode* node,int data)
 }
 struct BSTNode* delete(struct BSTNode* node,int data)
 {
-    
+
 }
 void print_tree(struct BSTNode* node)
 {
