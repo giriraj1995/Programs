@@ -13,7 +13,7 @@ struct BSTNode* newnode(int data)
 	temp->left=NULL;
 	temp->right=NULL;
 
-	return temp;a
+	return temp;
 }
 struct BSTNode* insert(struct BSTNode* node,int data)
 {
@@ -38,15 +38,15 @@ struct BSTNode* minValNode(struct BSTNode* node)
 
 	return current;
 }
-struct BSTNode* delete(struct BSTNode* root,int data)
+struct BSTNode* deletee(struct BSTNode* root,int data)
 {
 	if(root==NULL)
 		return root;
 
 	if(data > root->item)
-		root->right=delete(root->right,data);
+		root->right=deletee(root->right,data);
 	else if(data < root->item)
-		root->left=delete(root->left,data);
+		root->left=deletee(root->left,data);
 	else
 	{
 		if(root->left==NULL)
@@ -61,7 +61,11 @@ struct BSTNode* delete(struct BSTNode* root,int data)
 			free(root);
 			return temp;
 		}
+		struct BSTNode* temp=minValNode(root->right);
+		root->item=temp->item;
+		root->right=deletee(root->right,temp->item);
 	}
+	return root;
 
 }
 void print_tree(struct BSTNode* node)
@@ -81,6 +85,10 @@ int main()
 	{
 		root=insert(root,a[i]);
 	}
+	print_tree(root);
+
+	root=deletee(root,5);
+	cout<<"\n";
 	print_tree(root);
 	return 0;
 }
