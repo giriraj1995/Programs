@@ -8,12 +8,12 @@ struct BSTNode
 };
 struct BSTNode* newnode(int data)
 {
-	struct BSTNode *temp=(struct BSTNode*)malloc(sizeof(struct BSTNode));
+	struct BSTNode *temp=(struct BSTNode*)malloc(sizeof(struct BSTNode)) ;
 	temp->item=data;
 	temp->left=NULL;
 	temp->right=NULL;
 
-	return temp;
+	return temp;a
 }
 struct BSTNode* insert(struct BSTNode* node,int data)
 {
@@ -27,9 +27,42 @@ struct BSTNode* insert(struct BSTNode* node,int data)
 		 node->right=insert(node->right,data);
 	return node;
 }
-struct BSTNode* delete(struct BSTNode* node,int data)
+struct BSTNode* minValNode(struct BSTNode* node)
 {
-    
+	struct BSTNode* current=node;
+
+	while(current->left!=NULL)
+	{
+		current=current->left;
+	}
+
+	return current;
+}
+struct BSTNode* delete(struct BSTNode* root,int data)
+{
+	if(root==NULL)
+		return root;
+
+	if(data > root->item)
+		root->right=delete(root->right,data);
+	else if(data < root->item)
+		root->left=delete(root->left,data);
+	else
+	{
+		if(root->left==NULL)
+		{
+			struct BSTNode* temp=root->right;
+			free(root);
+			return temp;
+		}
+		if(root->right==NULL)
+		{
+			struct BSTNode* temp=root->left;
+			free(root);
+			return temp;
+		}
+	}
+
 }
 void print_tree(struct BSTNode* node)
 {
