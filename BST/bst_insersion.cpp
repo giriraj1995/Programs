@@ -27,6 +27,10 @@ struct BSTNode* insert(struct BSTNode* node,int data)
 		 node->right=insert(node->right,data);
 	return node;
 }
+struct BSTNode* delete(struct BSTNode* node,int data)
+{
+    
+}
 void print_tree(struct BSTNode* node)
 {
 	if(node!=NULL)
