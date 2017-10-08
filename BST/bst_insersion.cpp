@@ -19,6 +19,8 @@ struct BSTNode* insert(struct BSTNode* node,int data)
 {
 	if (node==NULL)
 		return newnode(data);
+
+
 	if(node->item > data)
 		 node->left=insert(node->left,data);
 	else if(node->item < data)
@@ -38,9 +40,9 @@ int main()
 {
 	int a[10]={3,6,5,8,1,9,0,2,4,7};
 	struct BSTNode *root=NULL;
-	for(int i=1;i<10;i++)
+	for(int i=0;i<10;i++)
 	{
-		insert(root,a[i]);
+		root=insert(root,a[i]);
 	}
 	print_tree(root);
 	return 0;
