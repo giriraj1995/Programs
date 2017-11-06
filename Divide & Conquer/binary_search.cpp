@@ -6,6 +6,7 @@ int binar_search(int arr[],int l,int r,int no)
 	if(r>=1)
 	{
 		int mid=l+(r-1)/2;
+		
 		if(arr[mid]==no)
 			return mid;
 		else if(arr[mid]>no)
