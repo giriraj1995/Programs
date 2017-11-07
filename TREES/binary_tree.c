@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define infi 999
 struct node
 {
 	int data;
